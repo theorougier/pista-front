@@ -144,3 +144,5 @@ export const GOALS = [
     check: true,
   },
 ];
+
+export const CATEGORIES = ["sport", "santé", "loisirs", "écologie", "finance"];
