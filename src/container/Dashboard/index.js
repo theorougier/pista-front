@@ -1,5 +1,6 @@
 import React from "react";
 import { GOALS, CATEGORIES } from "../../helpers/constant";
+import PieChart from "../../component/PieChart";
 
 export default function Dashboard() {
   return (
@@ -21,21 +22,33 @@ export default function Dashboard() {
             </p>
           </div>
         </div>
-        <div className="w-6/12"></div>
+        <div className="w-6/12">
+          <PieChart
+            data={[
+              {
+                id: 0,
+                name: "Badge",
+                title: "Badge",
+                star: 10,
+                color: "#FFB039",
+                categoryColor: "red",
+              },
+            ]}
+          />
+        </div>
       </div>
       <div className="w-full">
         <p className="text-xl font-bold mb-5">Catégories</p>
-        <div className="overflow-auto flex gap-5">
+        <div className="overflow-y-scroll no-scrollbar flex gap-5">
           {CATEGORIES.map((category) => (
             <div className="rounded bg-purple p-5">
               <p className="font-bold">{category}</p>
-              <p>
-                {" "}
-                {
+
+              <p className="flex flex-row">
+                {`${
                   GOALS.filter((goal) => goal.categories.includes(category))
                     .length
-                }{" "}
-                objectif
+                } objectif`}
               </p>
             </div>
           ))}
