@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("Bouton.css");
+@import url("Formulaire.css");
+@import url("Graph.css");
+@import url("Illustration.css");
+@import url("Titre.css");
+@import url("Logo.css");
+@import url("Input.css");
+
+body {
+    height: 100vh;
+    margin: unset;
+    font-family: 'Montserrat';
+    background-image: url("../assets/v904-nunny-017-d.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+body #root {
+    height: 100%;
+}
