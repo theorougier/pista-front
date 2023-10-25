@@ -1,16 +1,8 @@
-.illustration {
-    display: flex;
-    justify-content: center;
-    height: 45vh;
-}
-
-.illustration div {
-    width: 294px;
-}
-
 .illustration div img {
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 10px;
+    max-width: 738px;
+    margin: auto;
 }

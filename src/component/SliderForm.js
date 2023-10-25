@@ -21,18 +21,19 @@ function SliderForm({ questions, onComplete }) {
   };
 
   return (
-    <section>
+    <section className="m-3">
       <div>
         <Question
-          label={questions[currentQuestion].label}
+          currentQuestion={currentQuestion}
+          questions={questions}
+          handleNext={handleNext}
           sub_label={questions[currentQuestion].sub_label}
+          label={questions[currentQuestion].label}
           type={questions[currentQuestion].type}
           onChange={handleChange}
           value={answers[questions[currentQuestion].name] || ""}
+          options={questions[currentQuestion].options}
         />
-        <button onClick={handleNext}>
-          {currentQuestion === questions.length - 1 ? "✅" : "➡️"}
-        </button>
       </div>
     </section>
   );
