@@ -1,7 +1,7 @@
-export default function Button({label, className, id}) {
+export default function Bouton({label, className, id, type="primary", handleclick}) {
   return ( 
-  <section className={...className} id={id}>
-    <button>{{label}}</button> 
+  <section className={type? "bouton-base primary " + className : "bouton-base secondaire " + className} id={id}>
+    <button onClick={handleclick}>{label}</button> 
   </section> 
   );
 }
