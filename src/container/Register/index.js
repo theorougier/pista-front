@@ -5,65 +5,58 @@ import Bouton from "../../component/Bouton";
 import Formulaire from "../../component/Formulaire";
 import { useNavigate } from "react-router-dom";
 import SliderForm from "../../component/SliderForm";
+import IllustrationRegister from "../../assets/Layer 2.svg";
 
 export default function Register() {
   const navigate = useNavigate();
 
   const registerQuestions = [
-    { label: 'Prénom', name: 'firstname', type: 'text' },
-    { label: 'Genre', name: 'gender', type: 'text' },
-    { label: 'Email', name: 'email', type: 'email' },
-    { label: 'Mot de passe', name: 'password', type: 'password' }
+    {
+      label: "Quel est votre",
+      sub_label: "nom prénom ?",
+      name: "firstname",
+      type: "text",
+    },
+    {
+      label: "Quel est votre",
+      sub_label: "Genre ?",
+      name: "gender",
+      type: "select",
+      options: [
+        { value: "homme", label: "Homme" },
+        { value: "femme", label: "Femme" },
+        { value: "autre", label: "Autre" },
+      ],
+    },
+    {
+      label: "Quel est votre",
+      sub_label: "Email ?",
+      name: "email",
+      type: "email",
+    },
+    {
+      label: "Veuillez creer un",
+      sub_label: "Mot de passe",
+      name: "password",
+      type: "password",
+    },
   ];
 
   const handleComplete = (answers) => {
-    console.log('Réponses du formulaire:', answers);
+    console.log("Réponses du formulaire:", answers);
   };
 
   return (
-    <div className="container-register">
-      <Logo label={"Pista"} />
-      <Illustration
-        url={
-          "https://images.unsplash.com/photo-1697596694485-e082a41d1796?auto=format&fit=crop&q=80&w=2874&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        }
-      />
-      <Formulaire>
-        <div className="input-register">
-          <label>
-            Renseignez vos
-            <br />
-            <strong>coordonnées ?</strong>
-          </label>
-          <div>
-            <label>Mail</label>
-            <input type="text" id="Mail" />
-          </div>
-          <div>
-            <label>Nom</label>
-            <input type="text" id="Nom" />
-          </div>
-          <div>
-            <label>Mot de passe</label>
-            <input type="text" id="password" />
-          </div>
-          <div>
-            <label>Confirmation de mot de passe</label>
-            <input type="text" id="confirm-password" />
-          </div>
-          <div></div>
+      <div className="">
+        <Logo label={"Pista"} className={"m-3"}/>
+        <Illustration url={IllustrationRegister} className={"m-3"}/>
+        <SliderForm questions={registerQuestions} onComplete={handleComplete} />
+        <div className="">
+          <Bouton
+            label={"Je possède déjà un compte"}
+            handleclick={() => navigate("/login")}
+          />
         </div>
-      </Formulaire>
-      <div className="container-button-register">
-        <Bouton
-          label={"s'enregistrer"}
-          handleclick={() => console.log("register")}
-        />
-        <Bouton
-          label={"Je possède déjà un compte"}
-          handleclick={() => navigate("/login")}
-        />
       </div>
-    </div>
   );
 }
