@@ -22,17 +22,46 @@ export default function Dashboard() {
             </p>
           </div>
         </div>
-        <div className="w-6/12">
-          <PieChart />
+        <div className="w-6/12 p-3">
+          <PieChart
+            data={[
+              { value: GOALS.length },
+              { value: GOALS.filter((goal) => goal.check).length },
+            ]}
+          />
         </div>
       </div>
       <div className="w-full">
         <p className="text-xl font-bold mb-5">Catégories</p>
-        <div className="overflow-y-scroll no-scrollbar flex gap-5">
+        <div className="overflow-y-scroll no-scrollbar flex gap-5 ">
           {CATEGORIES.map((category) => (
-            <div className="rounded bg-purple p-5">
-              <p className="font-bold">{category}</p>
+            <div className="rounded bg-purple p-5 min-w-[135px] flex flex-col justify-center items-center">
+              <div className="w-[58px] h-[58px]">
+                {console.log(
+                  "test",
+                  GOALS.filter(
+                    (goal) => goal.check && goal.categories.includes(category)
+                  )?.length
+                )}
+                <PieChart
+                  data={[
+                    {
+                      value: GOALS.filter(
+                        (goal) =>
+                          goal.check && goal.categories.includes(category)
+                      ).length,
+                    },
+                    {
+                      value: GOALS.filter(
+                        (goal) =>
+                          goal.check && goal.categories.includes(category)
+                      )?.length,
+                    },
+                  ]}
+                />
+              </div>
 
+              <p className="font-bold">{category}</p>
               <p className="flex flex-row">
                 {`${
                   GOALS.filter((goal) => goal.categories.includes(category))

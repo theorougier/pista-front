@@ -1,29 +1,40 @@
 import React from "react";
-import { Chart } from "react-google-charts";
+import { Doughnut } from "react-chartjs-2";
+import { ArcElement, Chart as ChartJS, Legend, Tooltip } from "chart.js";
 
-export const data = [
-  ["Task", "Hours per Day"],
-  ["Work", 11],
-  ["Eat", 2],
-  ["Commute", 2],
-  ["Watch TV", 2],
-  ["Sleep", 7], // CSS-style declaration
-];
+ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const options = {
-  pieHole: 0.4,
-  is3D: false,
-  legend: { position: "none" },
-};
+export default function PieChart({ data }) {
+  const dataElement = {
+    datasets: [
+      {
+        data: data.map((elem) => {
+          return elem.value;
+        }),
+        backgroundColor: ["#6A00BE", "#ffffff"],
+        borderWidth: 0,
+      },
+    ],
+  };
 
-export default function PieChart() {
+  const options = {
+    cutout: "78%",
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        fontSize: 50,
+        mode: "point",
+        displayColors: false,
+        backgroundColor: "#6A00BE",
+        callbacks: {
+          label: function (tooltipItem) {
+            return tooltipItem.dataset.data[tooltipItem.dataIndex];
+          },
+        },
+      },
+    },
+  };
   return (
-    <Chart
-      chartType="PieChart"
-      width="100%"
-      height="400px"
-      data={data}
-      options={options}
-    />
+    <Doughnut data-id="doughnutChart" data={dataElement} options={options} />
   );
 }
