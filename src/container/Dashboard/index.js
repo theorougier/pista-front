@@ -23,18 +23,7 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="w-6/12">
-          <PieChart
-            data={[
-              {
-                id: 0,
-                name: "Badge",
-                title: "Badge",
-                star: 10,
-                color: "#FFB039",
-                categoryColor: "red",
-              },
-            ]}
-          />
+          <PieChart />
         </div>
       </div>
       <div className="w-full">
