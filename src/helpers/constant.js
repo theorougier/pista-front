@@ -150,7 +150,7 @@ export const USERS = [
   {
     id: 1,
     name: "Théo",
-    email: "zdietrich@example.net",
+    email: "test@example.net",
     email_verified_at: "2023-10-25 22:15:58",
     password: "test123",
     gender: "male",
@@ -158,7 +158,7 @@ export const USERS = [
     remember_token: "057iQxEKXw",
     created_at: "2023-10-25 22:15:58",
     updated_at: "2023-10-25 22:15:58",
-    user_group_objective : [
+    user_group_objective: [
       {
         id: 1,
         user_id: 2,
@@ -187,9 +187,9 @@ export const USERS = [
         created_at: "2023-10-25 22:15:59",
         updated_at: "2023-10-25 22:15:59",
       },
-    ] 
-  }
-]
+    ],
+  },
+];
 
 export const CATEGORIES = [
   { name: "sport", color: "blue" },
@@ -198,5 +198,4 @@ export const CATEGORIES = [
   { name: "écologie", color: "#db00ff" },
   { name: "finance", color: "blue" },
   { name: "bureau", color: "orange" },
-
-]
+];
