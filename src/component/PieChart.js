@@ -35,8 +35,8 @@ export default function PieChart({ value }) {
     },
   };
   const options = {
+    cutout: "78%",
     plugins: {
-      cutout: "78%",
       legend: { display: false },
 
       tooltip: {
@@ -50,19 +50,18 @@ export default function PieChart({ value }) {
       },
       datalabels: {
         formatter: (value, ctx) => {
-            let sum = 0;
-            let dataArr = ctx.chart.data.datasets[0].data;
-            dataArr.map(data => {
-                sum += data;
-            });
-            let percentage = (value*100 / sum).toFixed(2)+"%";
-            console.log(percentage)
-            return percentage;
+          let sum = 0;
+          let dataArr = ctx.chart.data.datasets[0].data;
+          dataArr.map((data) => {
+            sum += data;
+          });
+          let percentage = ((value * 100) / sum).toFixed(2) + "%";
+          console.log(percentage);
+          return percentage;
         },
       },
     },
   };
-
 
   useEffect(() => {}, [value]);
 
