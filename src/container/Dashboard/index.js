@@ -1,6 +1,9 @@
 import React from "react";
 import { GOALS, CATEGORIES } from "../../helpers/constant";
 import PieChart from "../../component/PieChart";
+import Bouton from "../../component/Bouton";
+import IconPlus from "../../assets/logo/plus.svg";
+import IconChevrons from "../../assets/logo/chevron_up.svg";
 
 export default function Dashboard() {
   const getTaskColor = (task) => {
@@ -8,7 +11,9 @@ export default function Dashboard() {
   };
   return (
     <div className="w-full">
-      <h1 className="text-2xl font-bold mb-[30px]">Bonjour, {localStorage.getItem('userName')}</h1>
+      <h1 className="text-2xl font-bold mb-[30px]">
+        Bonjour, {localStorage.getItem("userName")}
+      </h1>
       <div className="w-full bg-purple-dark rounded-lg px-5 py-4 flex mb-5">
         <div className="w-6/12 flex flex-col justify-between shadow-purple-dark">
           <div className="text-white text-sm">
@@ -110,6 +115,10 @@ export default function Dashboard() {
             </div>
           </div>
         ))}
+      </div>
+      <div className="flex fixed bottom-0 left-0 justify-between w-full">
+        <Bouton svg={true} url={IconPlus} />
+        <Bouton className={""} svg={true} url={IconChevrons} />
       </div>
     </div>
   );
