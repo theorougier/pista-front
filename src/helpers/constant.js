@@ -188,8 +188,9 @@ export const USERS = [
         updated_at: "2023-10-25 22:15:59",
       },
     ] 
-  },
-  
+  }
+]
+
 export const CATEGORIES = [
   { name: "sport", color: "blue" },
   { name: "santé", color: "#db00ff" },
@@ -197,3 +198,5 @@ export const CATEGORIES = [
   { name: "écologie", color: "#db00ff" },
   { name: "finance", color: "blue" },
   { name: "bureau", color: "orange" },
+
+]
