@@ -31,6 +31,7 @@ export default function Login() {
       <Bouton
         label={"Je n’ai pas de compte 😔"}
         handleclick={() => navigate("/register")}
+        variant={"secondary"}
       />
     </div>
   );
