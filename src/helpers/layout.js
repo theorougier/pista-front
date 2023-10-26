@@ -13,13 +13,13 @@ export default function Layout({ children }) {
   }, [location]);
 
   return (
-    <body
+    <main
       style={{
         backgroundColor: `${bgColor}`,
       }}
       className={`${bgColor ? "bg-none" : "bg-my-image"} p-[30px] m-0`}
     >
       {children}
-    </body>
+    </main>
   );
 }
