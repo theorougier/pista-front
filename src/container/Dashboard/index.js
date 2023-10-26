@@ -1,17 +1,16 @@
 import React from "react";
-import { GOALS, CATEGORIES } from "../../helpers/constant";
+import { useNavigate } from "react-router-dom";
+import { GOALS, LIST, CATEGORIES } from "../../helpers/constant";
 import PieChart from "../../component/PieChart";
 import Bouton from "../../component/Bouton";
 import IconPlus from "../../assets/logo/plus.svg";
 import IconChevrons from "../../assets/logo/chevron_up.svg";
-import { useNavigate } from "react-router-dom";
+import Crown from "../../assets/Crown.png";
+
 
 export default function Dashboard() {
   const navigate = useNavigate();
-
-  const getTaskColor = (task) => {
-    return CATEGORIES.find((item) => task.categories.includes(item.name)).color;
-  };
+  
   return (
     <div className="w-full">
       <h1 className="text-2xl font-bold mb-[30px]">
@@ -35,10 +34,8 @@ export default function Dashboard() {
         </div>
         <div className="w-6/12 p-3">
           <PieChart
-            data={[
-              { value: GOALS.length },
-              { value: GOALS.filter((goal) => goal.check).length },
-            ]}
+            value={GOALS.filter((goal) => goal.check).length / GOALS.length}
+            icon={Crown}
           />
         </div>
       </div>
@@ -52,19 +49,15 @@ export default function Dashboard() {
             >
               <div className="w-[58px] h-[58px] mb-5">
                 <PieChart
-                  data={[
-                    {
-                      value: GOALS.filter((goal) =>
-                        goal.categories.includes(category.name)
-                      ).length,
-                    },
-                    {
-                      value: GOALS.filter(
-                        (goal) =>
-                          goal.check && goal.categories.includes(category.name)
-                      )?.length,
-                    },
-                  ]}
+                  value={
+                    GOALS.filter(
+                      (goal) =>
+                        goal.check && goal.categories.includes(category.name)
+                    )?.length /
+                    GOALS.filter((goal) =>
+                      goal.categories.includes(category.name)
+                    )?.length
+                  }
                 />
               </div>
               <div className="text-white flex flex-col items-center">
@@ -80,6 +73,36 @@ export default function Dashboard() {
             </div>
           ))}
         </div>
+      </div>
+      <div className="w-full">
+        <p className="text-xl font-bold mb-5">Mes listes</p>
+        {LIST.map((todo) => (
+          <div
+            style={{
+              backgroundColor: CATEGORIES.find((item) =>
+                todo.category.includes(item.name)
+              ).color,
+            }}
+            className="rounded-2xl w-full mb-5 flex p-3"
+            onClick={() => {
+              navigate(`/detail/${todo.id}`);
+            }}
+          >
+            <div className="w-7/12">
+              <p className="text-md font-bold text-white mb-1">{todo.title}</p>
+              <div className="w-full flex flex-row gap-1">
+                <div className="w-fit text-white">{todo.category[0]}</div>
+              </div>
+            </div>
+            <div className="w-5/12 flex items-center justify-end gap-1  ">
+              <div className="flex w-fit">
+                {todo.associated.map((elem) => (
+                  <img src={elem} alt={elem} />
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
       <div className="w-full">
         <p className="text-xl font-bold mb-5">Dernières objectif</p>
@@ -105,16 +128,8 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="w-3/12 flex items-center justify-center">
-              <PieChart
-                data={[
-                  {
-                    value: 100,
-                  },
-                  {
-                    value: goal.completed | 0,
-                  },
-                ]}
-              />
+              {console.log("test", goal.completed)}
+              <PieChart value={goal.completed} />
             </div>
           </div>
         ))}
