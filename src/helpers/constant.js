@@ -1,3 +1,5 @@
+import avatarMen from "../assets/avatar_men.png";
+import avatarWomen from "../assets/avatar_women.png";
 export const GOALS = [
   {
     id: 1,
@@ -198,4 +200,64 @@ export const CATEGORIES = [
   { name: "écologie", color: "#db00ff" },
   { name: "finance", color: "blue" },
   { name: "bureau", color: "orange" },
+];
+export const AVATARS = [avatarMen, avatarWomen];
+
+export const LIST = [
+  {
+    id: 0,
+    title: "Tennis",
+    category: ["sport"],
+    associated: AVATARS,
+    color: "purple",
+    tasks: [
+      {
+        id: 12,
+        title: "Lire au moins un livre par mois",
+        categories: ["loisirs"],
+        check: false,
+      },
+      {
+        id: 13,
+        title: "Participer à une course caritative",
+        categories: ["sport", "santé"],
+        check: false,
+      },
+    ],
+  },
+  {
+    id: 1,
+    title: "Administratif",
+    category: ["bureau"],
+    associated: [avatarMen],
+    color: "blue",
+    tasks: [
+      {
+        id: 1,
+        title: "Faire de l'exercice régulièrement",
+        categories: ["sport", "santé", "loisirs"],
+        check: false,
+        completed: 80,
+      },
+      {
+        id: 2,
+        title: "Économiser de l'argent chaque mois",
+        categories: ["finance"],
+        check: false,
+      },
+      {
+        id: 3,
+        title: "Réduire sa consommation de plastique",
+        categories: ["écologie"],
+        check: false,
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Temps de travail",
+    category: ["bureau"],
+    associated: AVATARS,
+  },
+  { id: 3, title: "Bien etre", category: ["sport"], associated: [avatarWomen] },
 ];

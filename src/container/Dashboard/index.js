@@ -1,14 +1,15 @@
 import React from "react";
-import { GOALS, CATEGORIES } from "../../helpers/constant";
+import { useNavigate } from "react-router-dom";
+import { GOALS, LIST, CATEGORIES } from "../../helpers/constant";
 import PieChart from "../../component/PieChart";
 
 export default function Dashboard() {
-  const getTaskColor = (task) => {
-    return CATEGORIES.find((item) => task.categories.includes(item.name)).color;
-  };
+  const navigate = useNavigate();
   return (
     <div className="w-full">
-      <h1 className="text-2xl font-bold mb-[30px]">Bonjour, {localStorage.getItem('userName')}</h1>
+      <h1 className="text-2xl font-bold mb-[30px]">
+        Bonjour, {localStorage.getItem("userName")}
+      </h1>
       <div className="w-full bg-purple-dark rounded-lg px-5 py-4 flex mb-5">
         <div className="w-6/12 flex flex-col justify-between shadow-purple-dark">
           <div className="text-white text-sm">
@@ -72,6 +73,36 @@ export default function Dashboard() {
             </div>
           ))}
         </div>
+      </div>
+      <div className="w-full">
+        <p className="text-xl font-bold mb-5">Mes listes</p>
+        {LIST.map((todo) => (
+          <div
+            style={{
+              backgroundColor: CATEGORIES.find((item) =>
+                todo.category.includes(item.name)
+              ).color,
+            }}
+            className="rounded-2xl w-full mb-5 flex p-3"
+            onClick={() => {
+              navigate(`/detail/${todo.id}`);
+            }}
+          >
+            <div className="w-7/12">
+              <p className="text-md font-bold text-white mb-1">{todo.title}</p>
+              <div className="w-full flex flex-row gap-1">
+                <div className="w-fit text-white">{todo.category[0]}</div>
+              </div>
+            </div>
+            <div className="w-5/12 flex items-center justify-end gap-1  ">
+              <div className="flex w-fit">
+                {todo.associated.map((elem) => (
+                  <img src={elem} alt={elem} />
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
       <div className="w-full">
         <p className="text-xl font-bold mb-5">Dernières objectif</p>
