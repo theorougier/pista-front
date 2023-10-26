@@ -223,6 +223,7 @@ export const CATEGORIES = [
   { name: "finance", color: "blue" },
   { name: "bureau", color: "orange" },
 ];
+
 export const AVATARS = [avatarMen, avatarWomen];
 
 export const LIST = [
@@ -304,3 +305,12 @@ export const LIST = [
   },
   { id: 3, title: "Bien etre", category: ["sport"], associated: [avatarWomen] },
 ];
+
+
+export const PROFILES = [
+  {name: "Mary", objectifs: 1},
+  {name: "David", objectifs: 1},
+  {name: "Fabrice", objectifs: 2},
+  {name: "Marie Anne", objectifs: 3},
+]
+

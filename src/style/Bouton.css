@@ -3,7 +3,7 @@
     justify-content: center;
 }
 
-.bouton-base button{
+.bouton-base.primary button{
     background: linear-gradient(90.64deg, rgba(84, 74, 113, 0.15) 27.94%, rgba(84, 74, 113, 0) 125.13%);
     border: none;
     border-radius: 10px;
@@ -15,4 +15,17 @@
     border: none;
     border-radius: 10px;
     padding: 10px;
+}
+
+.bouton-base.third button {
+}
+
+.button_category button {
+    border-radius: 100px;
+    padding: 10px;
+    font-weight: 500;
+}
+
+.button_category.active {
+    
 }

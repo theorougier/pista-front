@@ -2,10 +2,15 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { GOALS, LIST, CATEGORIES } from "../../helpers/constant";
 import PieChart from "../../component/PieChart";
+import Bouton from "../../component/Bouton";
+import IconPlus from "../../assets/logo/plus.svg";
+import IconChevrons from "../../assets/logo/chevron_up.svg";
 import Crown from "../../assets/Crown.png";
+
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  
   return (
     <div className="w-full">
       <h1 className="text-2xl font-bold mb-[30px]">
@@ -127,6 +132,10 @@ export default function Dashboard() {
             </div>
           </div>
         ))}
+      </div>
+      <div className="flex fixed bottom-0 left-0 justify-between w-full">
+        <Bouton svg={true} url={IconPlus} variant={"third"}/>
+        <Bouton handleclick={() => navigate("/forms")} className={""} svg={true} url={IconChevrons} variant={"third"}/>
       </div>
     </div>
   );
