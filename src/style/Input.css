@@ -53,3 +53,9 @@
     font-weight: bold;
     color: #8F00FF;
 }
+
+.input-form {
+    background: linear-gradient(90.99deg, rgba(122, 18, 255, 0.15) 29.18%, rgba(122, 18, 255, 0) 120.51%);
+    padding: 10px;
+    border-radius: 10px;
+}

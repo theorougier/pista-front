@@ -4,13 +4,16 @@ import Login from "./container/Login/index";
 import Register from "./container/Register/index";
 import Dashboard from "./container/Dashboard/index";
 import Detail from "./container/Detail";
-
 import Layout from "./helpers/layout";
+
+import Form from "./container/Form/index";
 
 export const GlobalContext = createContext({
   bgColor: null,
   setBgColor: () => {},
 });
+
+
 
 export function Router() {
   const [isAuth, setIsAuth] = useState(false);
@@ -29,11 +32,11 @@ export function Router() {
           <Route path="/" element={template(<Login />)} />
           <Route path="/login" element={template(<Login />)} />
           <Route path="/register" element={<Register />} />
-
           {isAuth && (
             <>
               <Route path="/dashboard" element={template(<Dashboard />)} />
               <Route path="/detail/:id" element={template(<Detail />)} />
+              <Route path="/forms" element={<Form />} />
             </>
           )}
           <Route path="*" element={template(<Login />)} />
