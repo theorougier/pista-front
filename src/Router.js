@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./container/Login/index";
 import Register from "./container/Register/index";
 import Dashboard from "./container/Dashboard/index";
+import Form from "./container/Form/index";
 
 export function Router() {
   const [isAuth, setIsAuth] = useState(false);
@@ -16,9 +17,12 @@ export function Router() {
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/forms" element={<Dashboard />} />
-
-          {isAuth && <Route path="/dashboard" element={<Dashboard />} />}
+          {isAuth && (
+            <>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/forms" element={<Form />} />
+            </>
+          )}
           <Route path="*" element={<Login />} />
         </Routes>
       </body>

@@ -6,6 +6,7 @@
 @import url("Titre.css");
 @import url("Logo.css");
 @import url("Input.css");
+@import url("BodyText.css");
 
 body {
     height: 100vh;
@@ -20,3 +21,8 @@ body {
 body #root {
     height: 100%;
 }
+
+hr {
+    color: #D9D9D9;
+}
+
