@@ -199,3 +199,10 @@ export const CATEGORIES = [
   { name: "finance", color: "blue" },
   { name: "bureau", color: "orange" },
 ];
+
+export const PROFILES = [
+  {name: "Mary", objectifs: 1},
+  {name: "David", objectifs: 1},
+  {name: "Fabrice", objectifs: 2},
+  {name: "Marie Anne", objectifs: 3},
+]

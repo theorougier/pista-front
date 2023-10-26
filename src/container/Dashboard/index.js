@@ -4,8 +4,11 @@ import PieChart from "../../component/PieChart";
 import Bouton from "../../component/Bouton";
 import IconPlus from "../../assets/logo/plus.svg";
 import IconChevrons from "../../assets/logo/chevron_up.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
+  const navigate = useNavigate();
+
   const getTaskColor = (task) => {
     return CATEGORIES.find((item) => task.categories.includes(item.name)).color;
   };
@@ -117,8 +120,8 @@ export default function Dashboard() {
         ))}
       </div>
       <div className="flex fixed bottom-0 left-0 justify-between w-full">
-        <Bouton svg={true} url={IconPlus} />
-        <Bouton className={""} svg={true} url={IconChevrons} />
+        <Bouton svg={true} url={IconPlus} variant={"third"}/>
+        <Bouton handleclick={() => navigate("/forms")} className={""} svg={true} url={IconChevrons} variant={"third"}/>
       </div>
     </div>
   );
