@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { GOALS, LIST, CATEGORIES } from "../../helpers/constant";
 import PieChart from "../../component/PieChart";
+import Crown from "../../assets/Crown.png";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -28,10 +29,8 @@ export default function Dashboard() {
         </div>
         <div className="w-6/12 p-3">
           <PieChart
-            data={[
-              { value: GOALS.length },
-              { value: GOALS.filter((goal) => goal.check).length },
-            ]}
+            value={GOALS.filter((goal) => goal.check).length / GOALS.length}
+            icon={Crown}
           />
         </div>
       </div>
@@ -45,19 +44,15 @@ export default function Dashboard() {
             >
               <div className="w-[58px] h-[58px] mb-5">
                 <PieChart
-                  data={[
-                    {
-                      value: GOALS.filter((goal) =>
-                        goal.categories.includes(category.name)
-                      ).length,
-                    },
-                    {
-                      value: GOALS.filter(
-                        (goal) =>
-                          goal.check && goal.categories.includes(category.name)
-                      )?.length,
-                    },
-                  ]}
+                  value={
+                    GOALS.filter(
+                      (goal) =>
+                        goal.check && goal.categories.includes(category.name)
+                    )?.length /
+                    GOALS.filter((goal) =>
+                      goal.categories.includes(category.name)
+                    )?.length
+                  }
                 />
               </div>
               <div className="text-white flex flex-col items-center">
@@ -128,16 +123,8 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="w-3/12 flex items-center justify-center">
-              <PieChart
-                data={[
-                  {
-                    value: 100,
-                  },
-                  {
-                    value: goal.completed | 0,
-                  },
-                ]}
-              />
+              {console.log("test", goal.completed)}
+              <PieChart value={goal.completed} />
             </div>
           </div>
         ))}

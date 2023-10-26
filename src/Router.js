@@ -1,32 +1,44 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./container/Login/index";
 import Register from "./container/Register/index";
 import Dashboard from "./container/Dashboard/index";
 import Detail from "./container/Detail";
 
+import Layout from "./helpers/layout";
+
+export const GlobalContext = createContext({
+  bgColor: null,
+  setBgColor: () => {},
+});
+
 export function Router() {
   const [isAuth, setIsAuth] = useState(false);
+  const [bgColor, setBgColor] = useState(null);
+
   useEffect(() => {
     setIsAuth(localStorage.userId ?? false);
-  }, []);
+  }, [localStorage]);
+
+  const template = (component) => <Layout children={component} />;
+
   return (
     <BrowserRouter>
-      <body className="bg-my-image p-[30px] m-0">
+      <GlobalContext.Provider value={{ bgColor, setBgColor }}>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={template(<Login />)} />
+          <Route path="/login" element={template(<Login />)} />
           <Route path="/register" element={<Register />} />
 
           {isAuth && (
             <>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/detail/:id" element={<Detail />} />
+              <Route path="/dashboard" element={template(<Dashboard />)} />
+              <Route path="/detail/:id" element={template(<Detail />)} />
             </>
           )}
-          <Route path="*" element={<Login />} />
+          <Route path="*" element={template(<Login />)} />
         </Routes>
-      </body>
+      </GlobalContext.Provider>
     </BrowserRouter>
   );
 }

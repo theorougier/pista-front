@@ -40,7 +40,6 @@ export default function Login() {
     } else {
       alert("Identifiants incorrects");
     }
-    console.log("Réponses du formulaire:", answers);
   };
 
   return (
