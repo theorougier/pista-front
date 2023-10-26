@@ -3,8 +3,15 @@
     justify-content: center;
 }
 
-.bouton-base button {
+.bouton-base button{
     background: linear-gradient(90.64deg, rgba(84, 74, 113, 0.15) 27.94%, rgba(84, 74, 113, 0) 125.13%);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.bouton-base.secondary button {
+    background-color: #8F00FF !important;
     border: none;
     border-radius: 10px;
     padding: 10px;

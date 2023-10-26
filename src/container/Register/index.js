@@ -54,6 +54,7 @@ export default function Register() {
         <div className="">
           <Bouton
             label={"Je possède déjà un compte"}
+            variant="primary"
             handleclick={() => navigate("/login")}
           />
         </div>
