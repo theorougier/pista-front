@@ -4,10 +4,16 @@ import Illustration from "../../component/Illustration";
 import Bouton from "../../component/Bouton";
 import { useNavigate } from "react-router-dom";
 import SliderForm from "../../component/SliderForm";
-import IllustrationLogin from "../../assets/Layer 1.svg"
+import IllustrationLogin from "../../assets/Layer 1.svg";
+import { USERS } from "../../helpers/constant";
+
 
 export default function Login() {
   const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  
+
 
   const loginQuestions = [
     { label: "Quel est votre", sub_label:"nom d’utilisateur ?", name: 'email', type: 'email' },
@@ -15,6 +21,17 @@ export default function Login() {
   ];
 
   const handleComplete = (answers) => {
+    const user = USERS.find((user) => user.email === answers.email && user.password === answers.password);
+
+    if (user) {
+      setIsAuthenticated(true);
+      navigate("/dashboard");
+      localStorage.setItem("userId", user.id);
+      localStorage.setItem("userName", user.name);
+      // Redirigez l'utilisateur ou affichez un message de bienvenue
+    } else {
+      alert('Identifiants incorrects');
+    }
     console.log('Réponses du formulaire:', answers);
   };
 

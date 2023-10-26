@@ -5,7 +5,7 @@ import PieChart from "../../component/PieChart";
 export default function Dashboard() {
   return (
     <div className="w-full">
-      <h1 className="text-2xl font-bold mb-[30px]"> Bonjour Camille</h1>
+      <h1 className="text-2xl font-bold mb-[30px]">Bonjour, {localStorage.getItem('userName')}</h1>
       <div className="w-full bg-purple-dark rounded-lg px-5 py-4 flex mb-5">
         <div className="w-6/12 flex flex-col justify-between shadow-purple-dark">
           <div className="text-white text-sm">
