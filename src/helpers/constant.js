@@ -146,6 +146,50 @@ export const GOALS = [
   },
 ];
 
+export const USERS = [
+  {
+    id: 1,
+    name: "Théo",
+    email: "zdietrich@example.net",
+    email_verified_at: "2023-10-25 22:15:58",
+    password: "test123",
+    gender: "male",
+    age: 83,
+    remember_token: "057iQxEKXw",
+    created_at: "2023-10-25 22:15:58",
+    updated_at: "2023-10-25 22:15:58",
+    user_group_objective : [
+      {
+        id: 1,
+        user_id: 2,
+        category_id: 10,
+        name: "Wanda Fisher",
+        created_at: "2023-10-25 22:15:58",
+        updated_at: "2023-10-25 22:15:58",
+        published_at: "2022-12-12 00:00:00",
+      },
+      {
+        id: 1,
+        todolist_id: 2,
+        user_id: 4,
+        category_id: 4,
+        name: "Aaron Stiedemann",
+        complete: 1,
+        created_at: "2023-10-25 22:15:59",
+        updated_at: "2023-10-25 22:15:59",
+        published_at: "2017-02-22 00:00:00",
+      },
+      {
+        id: 2,
+        task_id: 52,
+        todolist_id: 54,
+        name: "projet",
+        created_at: "2023-10-25 22:15:59",
+        updated_at: "2023-10-25 22:15:59",
+      },
+    ] 
+  },
+  
 export const CATEGORIES = [
   { name: "sport", color: "blue" },
   { name: "santé", color: "#db00ff" },
@@ -153,4 +197,3 @@ export const CATEGORIES = [
   { name: "écologie", color: "#db00ff" },
   { name: "finance", color: "blue" },
   { name: "bureau", color: "orange" },
-];
