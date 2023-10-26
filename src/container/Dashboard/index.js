@@ -128,7 +128,6 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="w-3/12 flex items-center justify-center">
-              {console.log("test", goal.completed)}
               <PieChart value={goal.completed} />
             </div>
           </div>

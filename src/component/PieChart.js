@@ -38,7 +38,6 @@ export default function PieChart({ value }) {
     cutout: "78%",
     plugins: {
       legend: { display: false },
-
       tooltip: {
         fontSize: 50,
         mode: "point",
