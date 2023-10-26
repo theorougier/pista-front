@@ -18,12 +18,12 @@ body {
   background-size: cover;
 }
 
-body #root {
-    height: 100%;
+body #root,
+main {
+  height: 100%;
+  min-height: 100vh;
 }
 
 hr {
-    color: #D9D9D9;
+  color: #d9d9d9;
 }
-
-

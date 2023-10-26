@@ -16,7 +16,7 @@ export default function Form() {
 
   return (
     <section className="p-8">
-      <div className="flex items-center">
+      <div className="flex items-center mb-5">
         <Bouton
           handleclick={() => navigate("/dashboard")}
           svg={true}
