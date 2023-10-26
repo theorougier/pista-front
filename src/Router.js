@@ -16,6 +16,7 @@ export function Router() {
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/forms" element={<Dashboard />} />
 
           {isAuth && <Route path="/dashboard" element={<Dashboard />} />}
           <Route path="*" element={<Login />} />
